@@ -132,6 +132,6 @@ PermissionUtil.requestPermissions(fragmentInstance, new String[]{Manifest.permis
 
 That's it. Now you can remove untraceable logic and result handling.
 
-How to Use
------
+Demo
+----
 You can find the demo application at [app](https://github.com/birfincankafein/permission-util/blob/master/app)  directory. Demo app includes requesting from Activity and Fragment samples.
