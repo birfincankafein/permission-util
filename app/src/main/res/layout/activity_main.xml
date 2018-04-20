@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="15dp"
+        android:id="@+id/textView_latest_result_title"
+        android:text="Latest Permission(s) Result"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView_latest_result_title"
+        android:layout_margin="15dp"
+        android:id="@+id/textView_latest_result"
+        android:gravity="center"
+        android:text="UNDEFINED"
+        android:textStyle="italic"
+        android:textSize="14sp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView_latest_result"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:id="@+id/button_permission_write_external_storage"
+        android:text="WRITE_EXTERNAL_STORAGE" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/button_permission_write_external_storage"
+        android:layout_margin="15dp"
+        android:id="@+id/button_permission_access_network_state"
+        android:text="ACCESS_NETWORK_STATE" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/button_permission_access_network_state"
+        android:layout_margin="15dp"
+        android:id="@+id/button_permission_read_calendar_read_contacts"
+        android:text="READ_CALENDAR &amp;&amp; READ_CONTACTS"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/button_permission_read_calendar_read_contacts"
+        android:layout_margin="15dp"
+        android:id="@+id/button_app_settings"
+        android:text="Open App Settings"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/button_app_settings"
+        android:id="@+id/button_check_fragment"
+        android:text="Check from Fragment"
+        android:layout_margin="15dp"/>
+
+</android.support.constraint.ConstraintLayout>
