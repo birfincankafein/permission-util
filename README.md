@@ -3,7 +3,7 @@
 
 What is Permission-Util  
 ------------   
- Permission-Util is an utility that simplifies Android runtime permission management.
+ Permission-Util is a utility that simplifies Android runtime permission management.
 *  It can request permissions in a single method and triggers given callback when permission status is ready.
 * It splits all requested permissions as grantedPermissions and deniedPermissions, so you can easily check which permission granted or which one denied by user.
 * It returns sum result so you don't need to check all permissions separately. If all permissions granted by user, Permission-util let you to keep your application logic simpler, you don'tt need to manage your permissions-sensitive code inside the `onRequestPermissionsResult`.
