@@ -18,20 +18,24 @@ In order to use the library, there are 3 different options:
   -  Add this to your app `build.gradle`:
  ```gradle
 dependencies {
- implementation 'com.birfincankafein:permission-util:1.0.0'}
+    implementation 'com.birfincankafein:permission-util:1.0.1'
+}
 ```
 
 **2. Maven**
 - Add the following to the `<dependencies>` section of your `pom.xml`:
  ```xml
 <dependency>
- <groupId>com.birfincankafein</groupId> <artifactId>permission-util</artifactId> <version>1.0.0</version></dependency>
+    <groupId>com.birfincankafein</groupId>
+    <artifactId>permission-util</artifactId>
+    <version>1.0.1</version>
+</dependency>
 ```
 
 **3. Ivy**
 - Add the following to the `<dependencies>` section of your `ivy.xml`:
 ```xml
-<dependency org='com.birfincankafein' name='permission-util' rev='1.0.0'> <artifact name='permission-util' ext='pom' /> </dependency>
+<dependency org='com.birfincankafein' name='permission-util' rev='1.0.1'> <artifact name='permission-util' ext='pom' /> </dependency>
 ```
 
 How to Use
@@ -39,8 +43,10 @@ How to Use
 Before starting, you should override the `onRequestedPermissionsResult` callback from `Activity` or `Fragment` in each of your Activities from which you make permissions requests, trigger the `PermissionUtil.onRequestPermissionsResult`. Single line code, easy.
 
 ```java
-@Override public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-PermissionUtil.onRequestPermissionsResult(requestCode, permissions, grantResults); }
+@Override
+public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    PermissionUtil.onRequestPermissionsResult(requestCode, permissions, grantResults);
+}
 ```
 
 You can request permissions from Activity or Fragment using  `requestPermission` for single permission, `requestPermissions` for multiple permissions.
@@ -50,15 +56,38 @@ PermissionUtil.requestPermission(activityInstance, Manifest.permission.ACCESS_NE
     @Override
     public void onPermissionResult(boolean isSuccess, int requestCode, ArrayList<String> grantedPermissions, ArrayList<String> deniedPermissions) {
         // checking permission granted from isSuccess
- if(isSuccess){ // permission granted someFunction(); } else{ // permission denied. Toast that this permission is required. Toast.makeText(activityInstance, "This permission is required for this operation", Toast.SHORT).show(); } }}); break;
+        if(isSuccess){
+            // permission granted
+            someFunction();
+        }
+        else {
+            // permission denied. Toast that this permission is required.
+            Toast.makeText(activityInstance, "This permission is required for this operation", Toast.SHORT).show();
+        }
+    }
+});
 ```
 * Requesting multiple permissions from Activity:
 ```java
 PermissionUtil.requestPermissions(activityInstance, new String[]{Manifest.permission.READ_CALENDAR, Manifest.permission.READ_CONTACTS}, new PermissionUtil.onPermissionResultListener() {
-   @Override
+    @Override
     public void onPermissionResult(boolean isSuccess, int requestCode, ArrayList<String> grantedPermissions, ArrayList<String> deniedPermissions) {
         // checking all permissions granted from isSuccess
- if(isSuccess){ // permission granted someFunction(); } else{ // permissions denied. Toast that this permission is required. if(deniedPermissions.contains(Manifest.permission.READ_CONTACTS)){ Toast.makeText(activityInstance, "Read Contact permission is required for this operation", Toast.SHORT).show(); } else if(deniedPermissions.contains(Manifest.permission.READ_CALENDAR)){ Toast.makeText(activityInstance, "Read Calendar permission is required for this operation", Toast.SHORT).show(); } } } });
+        if(isSuccess){
+            // permission granted
+            someFunction();
+        }
+        else {
+            // permissions denied. Toast that this permission is required.
+            if(deniedPermissions.contains(Manifest.permission.READ_CONTACTS)){
+                Toast.makeText(activityInstance, "Read Contact permission is required for this operation", Toast.SHORT).show();
+            }
+            else if(deniedPermissions.contains(Manifest.permission.READ_CALENDAR)){
+                Toast.makeText(activityInstance, "Read Calendar permission is required for this operation", Toast.SHORT).show();
+            }
+        }
+    }
+});
 ```
 * Requesting single permission from Fragment:
 ```java
@@ -66,17 +95,36 @@ PermissionUtil.requestPermission(fragmentInstance, Manifest.permission.ACCESS_NE
     @Override
     public void onPermissionResult(boolean isSuccess, int requestCode, ArrayList<String> grantedPermissions, ArrayList<String> deniedPermissions) {
         // checking permission granted from isSuccess
- if(isSuccess){ // permission granted someFunction(); } else{ // permission denied. Toast that this permission is required. Toast.makeText(fragmentInstance.getActivity(), "This permission is required for this operation", Toast.SHORT).show(); } }}); break;
+        if(isSuccess){
+            // permission granted
+            someFunction();
+        }
+        else {
+            // permission denied. Toast that this permission is required.
+            Toast.makeText(fragmentInstance.getActivity(), "This permission is required for this operation", Toast.SHORT).show();
+        }
+    }
+});
 ```
 * Requesting multiple permissions from Fragment:
 ```java
 PermissionUtil.requestPermissions(fragmentInstance, new String[]{Manifest.permission.READ_CALENDAR, Manifest.permission.READ_CONTACTS}, new PermissionUtil.onPermissionResultListener() {
-   @Override
+    @Override
     public void onPermissionResult(boolean isSuccess, int requestCode, ArrayList<String> grantedPermissions, ArrayList<String> deniedPermissions) {
         // checking all permissions granted from isSuccess
- if(isSuccess){ // permission granted someFunction(); } else{ // permissions denied. Toast that this permission is required. if(deniedPermissions.contains(Manifest.permission.READ_CONTACTS)){ Toast.makeText(fragmentInstance.getActivity(), "Read Contact permission is required for this operation", Toast.SHORT).show(); } else if(deniedPermissions.contains(Manifest.permission.READ_CALENDAR)){ Toast.makeText(fragmentInstance.getActivity(), "Read Calendar permission is required for this operation", Toast.SHORT).show(); } } } });
+        if(isSuccess){
+            // permission granted
+            someFunction();
+        }
+        else {
+            // permissions denied. Toast that this permission is required.
+            if(deniedPermissions.contains(Manifest.permission.READ_CONTACTS)){ Toast.makeText(fragmentInstance.getActivity(), "Read Contact permission is required for this operation", Toast.SHORT).show(); } else if(deniedPermissions.contains(Manifest.permission.READ_CALENDAR)){
+                Toast.makeText(fragmentInstance.getActivity(), "Read Calendar permission is required for this operation", Toast.SHORT).show();
+            }
+        }
+    }
+});
 ```
-
 That's it. Now you can remove untraceable logic and result handling.
 
 Demo
