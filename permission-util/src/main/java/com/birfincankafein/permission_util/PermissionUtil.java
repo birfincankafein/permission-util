@@ -127,7 +127,7 @@ public class PermissionUtil {
      * @param permissions should be passed from your Activity's or Fragment's onRequestPermissionsResult callback.
      * @param grantResults should be passed from your Activity's or Fragment's onRequestPermissionsResult callback.
      */
-    public static void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    public static void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         onPermissionResultListener listener = callbacks.get(requestCode);
         if(listener != null){
             callbacks.remove(requestCode);

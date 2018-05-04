@@ -1,6 +1,6 @@
 
 
-[![Release](https://img.shields.io/badge/release-1.0.1-blue.svg?style=flat)](https://bintray.com/birfincankafein/com.birfincankafein/permission-util/_latestVersion)  [![API](https://img.shields.io/badge/API-14+-green.svg?style=flat)]()
+[![Release](https://img.shields.io/badge/release-1.0.2-blue.svg?style=flat)](https://bintray.com/birfincankafein/com.birfincankafein/permission-util/_latestVersion)  [![API](https://img.shields.io/badge/API-14+-green.svg?style=flat)]()
 
 What is Permission-Util
 ------------
@@ -18,7 +18,7 @@ In order to use the library, there are 3 different options:
   -  Add this to your app `build.gradle`:
  ```gradle
 dependencies {
-    implementation 'com.birfincankafein:permission-util:1.0.1'
+    implementation 'com.birfincankafein:permission-util:1.0.2'
 }
 ```
 
@@ -28,14 +28,14 @@ dependencies {
 <dependency>
     <groupId>com.birfincankafein</groupId>
     <artifactId>permission-util</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
 **3. Ivy**
 - Add the following to the `<dependencies>` section of your `ivy.xml`:
 ```xml
-<dependency org='com.birfincankafein' name='permission-util' rev='1.0.1'> <artifact name='permission-util' ext='pom' /> </dependency>
+<dependency org='com.birfincankafein' name='permission-util' rev='1.0.2'> <artifact name='permission-util' ext='pom' /> </dependency>
 ```
 
 How to Use
