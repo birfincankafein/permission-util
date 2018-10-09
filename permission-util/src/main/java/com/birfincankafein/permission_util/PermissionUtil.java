@@ -1,5 +1,5 @@
 /*
- * Developed by metehantoksoy.
+ * Developed by birfincankafein.
  * https://github.com/birfincankafein/permission-util
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,8 +13,8 @@ package com.birfincankafein.permission_util;
 
 import android.app.Activity;
 import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
 import android.util.SparseArray;
 
 import java.util.ArrayList;

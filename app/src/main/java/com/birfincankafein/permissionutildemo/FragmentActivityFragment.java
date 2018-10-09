@@ -1,12 +1,14 @@
+/*
+ * Copyright (c) 2018.
+ * @author birfincankafein
+ *
+ */
+
 package com.birfincankafein.permissionutildemo;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,10 @@ import android.widget.TextView;
 import com.birfincankafein.permission_util.PermissionUtil;
 
 import java.util.ArrayList;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -62,7 +68,7 @@ public class FragmentActivityFragment extends Fragment implements Initializer {
         onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (v.getId()){
+                switch (v.getId()) {
                     case R.id.button_permission_access_network_state:
                         PermissionUtil.requestPermission(finalFragment, Manifest.permission.ACCESS_NETWORK_STATE, new PermissionUtil.onPermissionResultListener() {
                             @Override
@@ -76,10 +82,10 @@ public class FragmentActivityFragment extends Fragment implements Initializer {
                             @Override
                             public void onPermissionResult(boolean isSuccess, int requestCode, ArrayList<String> grantedPermissions, ArrayList<String> deniedPermissions) {
                                 StringBuilder toSet = new StringBuilder(String.format("%s/%s : %s", Manifest.permission.READ_CALENDAR, Manifest.permission.READ_CONTACTS, isSuccess));
-                                for(String grantedPermission : grantedPermissions){
+                                for (String grantedPermission : grantedPermissions) {
                                     toSet.append("\nGranted: ").append(grantedPermission);
                                 }
-                                for(String deniedPermission : deniedPermissions){
+                                for (String deniedPermission : deniedPermissions) {
                                     toSet.append("\nDenied: ").append(deniedPermission);
                                 }
                                 mTextView_LatestResult.setText(toSet);
@@ -115,9 +121,9 @@ public class FragmentActivityFragment extends Fragment implements Initializer {
         mButton_AppSettings.setOnClickListener(onClickListener);
     }
 
-    private void openAppSettings(){
+    private void openAppSettings() {
         Intent settingsIntent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-        settingsIntent.setData(Uri.fromParts("package" , BuildConfig.APPLICATION_ID, null));
+        settingsIntent.setData(Uri.fromParts("package", BuildConfig.APPLICATION_ID, null));
         startActivity(settingsIntent);
 
     }

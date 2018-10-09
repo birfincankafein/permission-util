@@ -1,11 +1,15 @@
 apply plugin: 'com.android.application'
 
+ext {
+    androidxLibVersion = "1.0.0"
+}
+
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.birfincankafein.permissionutildemo"
         minSdkVersion 14
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
@@ -18,8 +22,8 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
-    implementation 'com.android.support:design:27.1.1'
-    compile project(":permission-util")
+    implementation "androidx.appcompat:appcompat:${androidxLibVersion}"
+    implementation "androidx.constraintlayout:constraintlayout:1.1.3"
+    implementation "com.google.android.material:material:${androidxLibVersion}"
+    implementation project(":permission-util")
 }

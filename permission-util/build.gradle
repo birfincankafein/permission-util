@@ -2,6 +2,10 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
 
+ext {
+    androidxLibVersion = "1.0.0"
+}
+
 // for Bintray
 def projectVersionCode = Integer.parseInt(projectVersionCode);
 def libGit = libGit
@@ -15,10 +19,10 @@ group = libGroupId
 version = projectVersionName
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode projectVersionCode
         versionName projectVersionName
     }
@@ -75,7 +79,7 @@ bintray {
 }
 
 dependencies {
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation "androidx.appcompat:appcompat:${androidxLibVersion}"
 }
 
 android.libraryVariants.all { variant ->

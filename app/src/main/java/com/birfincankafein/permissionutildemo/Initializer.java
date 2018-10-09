@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2018.
+ * @author birfincankafein
+ *
+ */
+
 package com.birfincankafein.permissionutildemo;
 
 import android.view.View;
